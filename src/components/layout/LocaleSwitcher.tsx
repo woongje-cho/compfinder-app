@@ -20,7 +20,7 @@ export function LocaleSwitcher() {
       aria-label="Switch language"
       title={locale === "ko" ? "Switch to English" : "한국어로 전환"}
     >
-      {locale === "ko" ? "🇺🇸" : "🇰🇷"}
+      {locale === "ko" ? "🇰🇷" : "🇺🇸"}
     </button>
   );
 }
