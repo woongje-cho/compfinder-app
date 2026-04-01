@@ -70,6 +70,42 @@ export interface Competition {
   featured?: boolean;
 }
 
+// ─── Workshop ───
+export type SubmissionType = "full-paper" | "extended-abstract" | "both" | "poster";
+
+export interface Workshop {
+  id: string;
+  name: string;
+  slug: string;
+
+  parentConference: string;
+  parentAcronym: string;
+  categories: Category[];
+  region: Region;
+
+  organizers: string;
+  description: string;
+  url: string;
+  topics: string[];
+
+  submissionDeadline?: string;
+  notificationDate?: string;
+  cameraReadyDate?: string;
+  workshopDate?: string;
+
+  location?: string;
+  country?: string;
+  format: Format;
+
+  submissionType: SubmissionType;
+  language: string;
+
+  source: string;
+  sourceUrl?: string;
+  lastUpdated: string;
+  status: Status;
+}
+
 // ─── Series ───
 export interface CompetitionSeries {
   seriesId: string;

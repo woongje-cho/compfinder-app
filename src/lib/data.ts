@@ -1,15 +1,17 @@
 import competitionsData from "../data/competitions.json";
 import seriesData from "../data/series.json";
+import workshopsData from "../data/workshops.json";
 import type {
   Competition,
   CompetitionSeries,
+  Workshop,
   Category,
   Region,
   Tier,
   Status,
 } from "./types";
 import type { SortOption } from "./constants";
-import { computeStatus } from "./utils";
+import { computeStatus, computeWorkshopStatus } from "./utils";
 
 // ─── Load & Hydrate ───
 function hydrateCompetitions(): Competition[] {
@@ -21,6 +23,15 @@ function hydrateCompetitions(): Competition[] {
 
 const competitions = hydrateCompetitions();
 const series = seriesData as CompetitionSeries[];
+
+function hydrateWorkshops(): Workshop[] {
+  return (workshopsData as Workshop[]).map((w) => ({
+    ...w,
+    status: computeWorkshopStatus(w),
+  }));
+}
+
+const workshops = hydrateWorkshops();
 
 export function getAllCompetitions(): Competition[] {
   return competitions;
@@ -55,6 +66,40 @@ export function getRelatedCompetitions(
         c.categories.some((cat) => comp.categories.includes(cat))
     )
     .slice(0, limit);
+}
+
+// ─── Workshop Accessors ───
+export function getAllWorkshops(): Workshop[] {
+  return workshops;
+}
+
+export function getWorkshopBySlug(slug: string): Workshop | undefined {
+  return workshops.find((w) => w.slug === slug);
+}
+
+export function getRelatedWorkshops(
+  workshop: Workshop,
+  limit: number = 4
+): Workshop[] {
+  return workshops
+    .filter(
+      (w) =>
+        w.id !== workshop.id &&
+        (w.parentAcronym === workshop.parentAcronym ||
+          w.categories.some((cat) => workshop.categories.includes(cat)))
+    )
+    .slice(0, limit);
+}
+
+export function getWorkshopStats() {
+  const all = workshops;
+  const open = all.filter((w) => w.status === "open" || w.status === "closing_soon");
+  const closingSoon = all.filter((w) => w.status === "closing_soon");
+  return {
+    total: all.length,
+    open: open.length,
+    closingSoon: closingSoon.length,
+  };
 }
 
 // ─── Filter & Sort ───

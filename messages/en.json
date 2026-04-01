@@ -3,6 +3,7 @@
     "competitions": "Competitions",
     "series": "Series",
     "timeline": "Timeline",
+    "workshops": "Workshops",
     "submit": "Submit"
   },
   "home": {
@@ -68,6 +69,32 @@
     "editions": "Editions",
     "noEditions": "No editions found.",
     "officialWebsite": "Official website"
+  },
+  "workshops": {
+    "title": "Academic Workshops",
+    "description": "Workshops at ICRA, CVPR, NeurIPS, and more — track paper submission deadlines and topics.",
+    "all": "All",
+    "count": "{count} workshops",
+    "noResults": "No workshops match your filters.",
+    "sort": "Sort",
+    "sortDeadline": "Submission Deadline",
+    "sortDate": "Workshop Date",
+    "sortName": "Name",
+    "filterCategory": "Category",
+    "filterStatus": "Status"
+  },
+  "workshopDetail": {
+    "backToList": "Back to workshops",
+    "submissionDeadline": "Submission Deadline",
+    "notification": "Notification",
+    "cameraReady": "Camera Ready",
+    "workshopDate": "Workshop Date",
+    "location": "Location",
+    "submissionType": "Submission Type",
+    "about": "About",
+    "topics": "Topics",
+    "visitOfficial": "Visit Official Page",
+    "relatedWorkshops": "Related Workshops"
   },
   "timeline": {
     "title": "Timeline",

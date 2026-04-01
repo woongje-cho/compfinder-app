@@ -3,6 +3,7 @@
     "competitions": "대회",
     "series": "시리즈",
     "timeline": "타임라인",
+    "workshops": "워크숍",
     "submit": "제보하기"
   },
   "home": {
@@ -68,6 +69,32 @@
     "editions": "대회 연혁",
     "noEditions": "등록된 대회가 없습니다.",
     "officialWebsite": "공식 웹사이트"
+  },
+  "workshops": {
+    "title": "학술 워크숍",
+    "description": "ICRA, CVPR, NeurIPS 등 주요 학회 워크숍 — 논문 투고 마감일과 주제를 한눈에.",
+    "all": "전체",
+    "count": "{count}개 워크숍",
+    "noResults": "조건에 맞는 워크숍이 없습니다.",
+    "sort": "정렬",
+    "sortDeadline": "투고 마감",
+    "sortDate": "개최일",
+    "sortName": "이름",
+    "filterCategory": "분야",
+    "filterStatus": "상태"
+  },
+  "workshopDetail": {
+    "backToList": "워크숍 목록으로",
+    "submissionDeadline": "논문 투고 마감",
+    "notification": "결과 통보",
+    "cameraReady": "카메라 레디",
+    "workshopDate": "워크숍 날짜",
+    "location": "장소",
+    "submissionType": "투고 유형",
+    "about": "소개",
+    "topics": "주제",
+    "visitOfficial": "공식 페이지 방문",
+    "relatedWorkshops": "관련 워크숍"
   },
   "timeline": {
     "title": "타임라인",

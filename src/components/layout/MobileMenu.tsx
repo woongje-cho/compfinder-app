@@ -11,6 +11,7 @@ export function MobileMenu() {
 
   const NAV_LINKS = [
     { href: "/competitions" as const, label: t("competitions") },
+    { href: "/workshops" as const, label: t("workshops") },
     { href: "/series" as const, label: t("series") },
     { href: "/timeline" as const, label: t("timeline") },
     { href: "/submit" as const, label: t("submit") },

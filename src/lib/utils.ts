@@ -1,6 +1,6 @@
 import { clsx, type ClassValue } from "clsx";
 import { twMerge } from "tailwind-merge";
-import type { Competition, Status } from "./types";
+import type { Competition, Workshop, Status } from "./types";
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
@@ -79,5 +79,18 @@ export function computeStatus(comp: Competition): Status {
   }
   if (comp.registrationOpen && new Date(comp.registrationOpen) > now)
     return "upcoming";
+  return "open";
+}
+
+export function computeWorkshopStatus(w: Workshop): Status {
+  const now = new Date();
+  if (w.workshopDate && new Date(w.workshopDate) < now) return "closed";
+  if (w.submissionDeadline) {
+    const days = getDaysUntil(w.submissionDeadline);
+    if (days !== null) {
+      if (days < 0) return "closed";
+      if (days <= 7) return "closing_soon";
+    }
+  }
   return "open";
 }
