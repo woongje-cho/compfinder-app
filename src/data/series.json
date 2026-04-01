@@ -1,0 +1,74 @@
+[
+  {
+    "seriesId": "robocup",
+    "name": "RoboCup",
+    "slug": "robocup",
+    "description": "World's largest autonomous robot competition. Multiple leagues: Soccer, @Home, Rescue, Industrial, Junior.",
+    "organizer": "RoboCup Federation",
+    "website": "https://www.robocup.org/",
+    "categories": ["robotics", "ai-ml"],
+    "recurrence": "annual",
+    "firstYear": 1997,
+    "editionIds": ["robocup-2026"]
+  },
+  {
+    "seriesId": "arc-prize",
+    "name": "ARC Prize",
+    "slug": "arc-prize",
+    "description": "AGI benchmark competition. Build AI with human-level fluid intelligence on the ARC-AGI benchmark.",
+    "organizer": "ARC Prize Foundation",
+    "website": "https://arcprize.org/",
+    "categories": ["ai-ml"],
+    "recurrence": "annual",
+    "firstYear": 2024,
+    "editionIds": ["arc-prize-2026"]
+  },
+  {
+    "seriesId": "agibot-world-challenge",
+    "name": "AGIBOT World Challenge",
+    "slug": "agibot-world-challenge",
+    "description": "Embodied AI challenge at ICRA. World Model, VLM+VLA, and Whole-Body Control tracks.",
+    "organizer": "AGIBOT",
+    "website": "https://www.agibot.com/",
+    "categories": ["robotics", "ai-ml"],
+    "recurrence": "annual",
+    "firstYear": 2025,
+    "editionIds": ["agibot-2026"]
+  },
+  {
+    "seriesId": "roboracer",
+    "name": "RoboRacer (F1Tenth)",
+    "slug": "roboracer",
+    "description": "1:10 scale autonomous racing. Hardware-based competition at major robotics conferences.",
+    "organizer": "RoboRacer",
+    "website": "https://roboracer.ai/",
+    "categories": ["ad", "robotics"],
+    "recurrence": "irregular",
+    "firstYear": 2019,
+    "editionIds": ["roboracer-icra-2026", "roboracer-ifac-busan-2026"]
+  },
+  {
+    "seriesId": "barn-challenge",
+    "name": "BARN Challenge",
+    "slug": "barn-challenge",
+    "description": "Benchmark Autonomous Robot Navigation in complex environments. Sim + real-world evaluation.",
+    "organizer": "George Mason University",
+    "website": "https://people.cs.gmu.edu/~xiao/Research/BARN_Challenge/",
+    "categories": ["robotics", "ad"],
+    "recurrence": "annual",
+    "firstYear": 2022,
+    "editionIds": ["icra-barn-2026"]
+  },
+  {
+    "seriesId": "tron-contest",
+    "name": "TRON Programming Contest",
+    "slug": "tron-programming-contest",
+    "description": "RTOS application development contest using µT-Kernel. Student and General divisions.",
+    "organizer": "TRON Forum",
+    "website": "https://www.tron.org/",
+    "categories": ["electrical", "robotics"],
+    "recurrence": "annual",
+    "firstYear": 2004,
+    "editionIds": ["tron-contest-2026"]
+  }
+]
