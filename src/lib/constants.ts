@@ -32,6 +32,7 @@ export const STATUS_CONFIG: Record<
 > = {
   open: { label: "Open", color: "text-emerald-400", dotColor: "bg-emerald-400" },
   closing_soon: { label: "Closing Soon", color: "text-red-400", dotColor: "bg-red-400" },
+  ongoing: { label: "Ongoing", color: "text-amber-400", dotColor: "bg-amber-400" },
   upcoming: { label: "Upcoming", color: "text-blue-400", dotColor: "bg-blue-400" },
   closed: { label: "Closed", color: "text-zinc-500", dotColor: "bg-zinc-500" },
 };

@@ -73,7 +73,12 @@ export function computeStatus(comp: Competition): Status {
   if (comp.registrationDeadline) {
     const days = getDaysUntil(comp.registrationDeadline);
     if (days !== null) {
-      if (days < 0) return "closed";
+      if (days < 0) {
+        // Registration closed — check if competition is still running
+        if (comp.endDate && new Date(comp.endDate) > now) return "ongoing";
+        if (comp.startDate && new Date(comp.startDate) > now) return "ongoing";
+        return "closed";
+      }
       if (days <= 7) return "closing_soon";
     }
   }
@@ -88,7 +93,11 @@ export function computeWorkshopStatus(w: Workshop): Status {
   if (w.submissionDeadline) {
     const days = getDaysUntil(w.submissionDeadline);
     if (days !== null) {
-      if (days < 0) return "closed";
+      if (days < 0) {
+        // Submission closed but workshop hasn't happened yet
+        if (w.workshopDate && new Date(w.workshopDate) > now) return "ongoing";
+        return "closed";
+      }
       if (days <= 7) return "closing_soon";
     }
   }

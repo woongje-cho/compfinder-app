@@ -191,7 +191,7 @@ export function filterCompetitions(params: FilterParams): Competition[] {
 // ─── Stats ───
 export function getStats() {
   const all = competitions;
-  const open = all.filter((c) => c.status === "open" || c.status === "closing_soon");
+  const open = all.filter((c) => c.status === "open" || c.status === "closing_soon" || c.status === "ongoing");
   const closingSoon = all.filter((c) => c.status === "closing_soon");
   const totalPrize = all.reduce((sum, c) => sum + (c.prizeAmount || 0), 0);
   const regionCounts = {

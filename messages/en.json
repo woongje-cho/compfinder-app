@@ -139,6 +139,7 @@
   "status": {
     "open": "Open",
     "closing_soon": "Closing Soon",
+    "ongoing": "Ongoing",
     "upcoming": "Upcoming",
     "closed": "Closed"
   },

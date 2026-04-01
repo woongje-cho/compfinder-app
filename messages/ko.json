@@ -139,8 +139,9 @@
   "status": {
     "open": "접수 중",
     "closing_soon": "마감 임박",
+    "ongoing": "진행 중",
     "upcoming": "예정",
-    "closed": "마감"
+    "closed": "종료"
   },
   "category": {
     "robotics": "🤖 로보틱스",
