@@ -6,18 +6,18 @@
     "submit": "제보하기"
   },
   "home": {
-    "heroTitle1": "다음 공학 대회를",
-    "heroTitle2": "찾아보세요.",
-    "heroDescription": "로보틱스, 자율주행, AI/ML 등 — 전 세계 공학 대회를 자동으로 수집하고 티어별로 분류합니다.",
-    "browseAll": "전체 대회 보기",
-    "totalCompetitions": "전체 대회",
+    "heroTitle1": "도전할 대회,",
+    "heroTitle2": "여기서 찾으세요.",
+    "heroDescription": "로보틱스 · 자율주행 · AI/ML — 전 세계 공학 대회를 한눈에. 티어 · 분야 · 마감일로 빠르게 탐색하세요.",
+    "browseAll": "대회 둘러보기",
+    "totalCompetitions": "등록 대회",
     "currentlyOpen": "접수 중",
     "closingSoon": "마감 임박",
-    "totalPrizes": "총 상금",
-    "closingSoonTitle": "마감 임박",
-    "featuredTitle": "주요 대회",
-    "openNowTitle": "현재 접수 중",
-    "viewAll": "전체 보기"
+    "totalPrizes": "총 상금 규모",
+    "closingSoonTitle": "⏰ 마감 임박",
+    "featuredTitle": "🏆 주요 대회",
+    "openNowTitle": "📋 접수 중인 대회",
+    "viewAll": "전체 보기 →"
   },
   "competitions": {
     "title": "대회",
@@ -96,7 +96,7 @@
     "backHome": "홈으로 돌아가기"
   },
   "footer": {
-    "tagline": "다음 공학 대회를 찾아보세요."
+    "tagline": "도전할 대회, 여기서 찾으세요."
   },
   "region": {
     "korea": "🇰🇷 국내",

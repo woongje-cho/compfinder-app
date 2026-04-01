@@ -6,18 +6,18 @@
     "submit": "Submit"
   },
   "home": {
-    "heroTitle1": "Find your next engineering",
-    "heroTitle2": "competition.",
-    "heroDescription": "Robotics, autonomous driving, AI/ML, and more — automatically aggregated and classified by tier.",
-    "browseAll": "Browse All Competitions",
-    "totalCompetitions": "Total Competitions",
-    "currentlyOpen": "Currently Open",
+    "heroTitle1": "Your next challenge",
+    "heroTitle2": "starts here.",
+    "heroDescription": "Robotics · Autonomous Driving · AI/ML — explore top engineering competitions worldwide, ranked by tier.",
+    "browseAll": "Explore Competitions",
+    "totalCompetitions": "Competitions",
+    "currentlyOpen": "Open Now",
     "closingSoon": "Closing Soon",
     "totalPrizes": "Total Prizes",
-    "closingSoonTitle": "Closing Soon",
-    "featuredTitle": "Featured Competitions",
-    "openNowTitle": "Open Now",
-    "viewAll": "View all"
+    "closingSoonTitle": "⏰ Closing Soon",
+    "featuredTitle": "🏆 Featured",
+    "openNowTitle": "📋 Open for Registration",
+    "viewAll": "View all →"
   },
   "competitions": {
     "title": "Competitions",
@@ -96,7 +96,7 @@
     "backHome": "Back to Home"
   },
   "footer": {
-    "tagline": "Find your next engineering competition."
+    "tagline": "Your next challenge starts here."
   },
   "region": {
     "korea": "🇰🇷 Korea",
