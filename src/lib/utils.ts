@@ -69,37 +69,71 @@ export function formatPrizeShort(amount?: number): string {
 // ─── Status Computation ───
 export function computeStatus(comp: Competition): Status {
   const now = new Date();
+
+  // 1. Event already ended → closed
   if (comp.endDate && new Date(comp.endDate) < now) return "closed";
+
+  // 2. Has registration deadline → use it for primary logic
   if (comp.registrationDeadline) {
     const days = getDaysUntil(comp.registrationDeadline);
     if (days !== null) {
       if (days < 0) {
-        // Registration closed — check if competition is still running
+        // Registration closed — is the event still upcoming/running?
         if (comp.endDate && new Date(comp.endDate) > now) return "ongoing";
         if (comp.startDate && new Date(comp.startDate) > now) return "ongoing";
         return "closed";
       }
       if (days <= 7) return "closing_soon";
+      return "open";
     }
   }
+
+  // 3. No registration deadline but has start date
+  if (comp.startDate) {
+    const startDays = getDaysUntil(comp.startDate);
+    if (startDays !== null) {
+      if (startDays > 30) return "upcoming";
+      if (startDays > 0) return "open";
+      // Start date passed
+      if (comp.endDate && new Date(comp.endDate) > now) return "ongoing";
+      return "closed";
+    }
+  }
+
+  // 4. Has registrationOpen → check if not yet open
   if (comp.registrationOpen && new Date(comp.registrationOpen) > now)
     return "upcoming";
-  return "open";
+
+  // 5. No dates at all → preserve JSON status as-is
+  return comp.status;
 }
 
 export function computeWorkshopStatus(w: Workshop): Status {
   const now = new Date();
+
+  // 1. Workshop already happened → closed
   if (w.workshopDate && new Date(w.workshopDate) < now) return "closed";
+
+  // 2. Has submission deadline
   if (w.submissionDeadline) {
     const days = getDaysUntil(w.submissionDeadline);
     if (days !== null) {
       if (days < 0) {
-        // Submission closed but workshop hasn't happened yet
         if (w.workshopDate && new Date(w.workshopDate) > now) return "ongoing";
         return "closed";
       }
       if (days <= 7) return "closing_soon";
+      return "open";
     }
   }
-  return "open";
+
+  // 3. No submission deadline but has workshop date
+  if (w.workshopDate) {
+    const wDays = getDaysUntil(w.workshopDate);
+    if (wDays !== null && wDays > 30) return "upcoming";
+    if (wDays !== null && wDays > 0) return "open";
+  }
+
+  // 4. No dates → preserve JSON status
+  return w.status;
 }
