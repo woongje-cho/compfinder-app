@@ -1,12 +1,15 @@
 "use client";
 
-import { useRouter, useSearchParams } from "next/navigation";
+import { useSearchParams } from "next/navigation";
 import { useState } from "react";
 import { Search } from "lucide-react";
+import { useTranslations } from "next-intl";
+import { useRouter } from "@/i18n/navigation";
 
 export function SearchBar() {
   const router = useRouter();
   const searchParams = useSearchParams();
+  const t = useTranslations("competitions");
   const [query, setQuery] = useState(searchParams.get("search") || "");
 
   function handleSubmit(e: React.FormEvent) {
@@ -28,7 +31,7 @@ export function SearchBar() {
         type="text"
         value={query}
         onChange={(e) => setQuery(e.target.value)}
-        placeholder="Search competitions..."
+        placeholder={t("searchPlaceholder")}
         className="w-full rounded-lg border border-zinc-700 bg-zinc-900 py-2.5 pl-10 pr-4 text-sm text-zinc-50 placeholder-zinc-500 transition-colors focus:border-zinc-500 focus:outline-none"
       />
     </form>

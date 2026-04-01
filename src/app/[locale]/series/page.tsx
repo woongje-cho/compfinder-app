@@ -1,7 +1,7 @@
-import Link from "next/link";
 import type { Metadata } from "next";
+import { getTranslations, setRequestLocale } from "next-intl/server";
+import { Link } from "@/i18n/navigation";
 import { getAllSeries, getSeriesEditions } from "@/lib/data";
-import { CATEGORY_CONFIG } from "@/lib/constants";
 import { CategoryTag } from "@/components/shared/CategoryTag";
 
 export const metadata: Metadata = {
@@ -9,15 +9,21 @@ export const metadata: Metadata = {
   description: "Browse recurring engineering competitions across years.",
 };
 
-export default function SeriesListPage() {
+export default async function SeriesListPage({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  setRequestLocale(locale);
+  const t = await getTranslations("seriesList");
+
   const allSeries = getAllSeries();
 
   return (
     <div className="mx-auto max-w-7xl px-4 py-8">
-      <h1 className="mb-2 text-3xl font-bold text-zinc-50">Competition Series</h1>
-      <p className="mb-8 text-zinc-400">
-        Recurring competitions that happen every year. See their full history.
-      </p>
+      <h1 className="mb-2 text-3xl font-bold text-zinc-50">{t("title")}</h1>
+      <p className="mb-8 text-zinc-400">{t("description")}</p>
 
       <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {allSeries.map((s) => {
@@ -42,8 +48,12 @@ export default function SeriesListPage() {
               </div>
               <div className="flex items-center gap-3 border-t border-zinc-800 pt-3 text-xs text-zinc-500">
                 <span className="capitalize">{s.recurrence}</span>
-                {s.firstYear && <span>Since {s.firstYear}</span>}
-                <span>{editions.length} edition{editions.length !== 1 ? "s" : ""}</span>
+                {s.firstYear && <span>{t("since", { year: s.firstYear })}</span>}
+                <span>
+                  {editions.length !== 1
+                    ? t("editions", { count: editions.length })
+                    : t("edition", { count: editions.length })}
+                </span>
               </div>
             </Link>
           );

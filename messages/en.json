@@ -1,0 +1,127 @@
+{
+  "nav": {
+    "competitions": "Competitions",
+    "series": "Series",
+    "timeline": "Timeline",
+    "submit": "Submit"
+  },
+  "home": {
+    "heroTitle1": "Find your next engineering",
+    "heroTitle2": "competition.",
+    "heroDescription": "Robotics, autonomous driving, AI/ML, and more — automatically aggregated and classified by tier.",
+    "browseAll": "Browse All Competitions",
+    "totalCompetitions": "Total Competitions",
+    "currentlyOpen": "Currently Open",
+    "closingSoon": "Closing Soon",
+    "totalPrizes": "Total Prizes",
+    "closingSoonTitle": "Closing Soon",
+    "featuredTitle": "Featured Competitions",
+    "openNowTitle": "Open Now",
+    "viewAll": "View all"
+  },
+  "competitions": {
+    "title": "Competitions",
+    "searchPlaceholder": "Search competitions...",
+    "count": "{count} competitions",
+    "noResults": "No competitions match your filters.",
+    "sort": "Sort",
+    "sortDeadline": "Deadline",
+    "sortPrize": "Prize",
+    "sortTier": "Tier",
+    "sortName": "Name",
+    "all": "All",
+    "filterTier": "Tier",
+    "filterCategory": "Category",
+    "filterStatus": "Status",
+    "filters": "Filters",
+    "hideFilters": "Hide Filters"
+  },
+  "detail": {
+    "backToList": "Back to competitions",
+    "prize": "Prize",
+    "location": "Location",
+    "dates": "Dates",
+    "registrationDeadline": "Registration Deadline",
+    "format": "Format",
+    "language": "Language",
+    "about": "About",
+    "eligibility": "Eligibility",
+    "studentOnly": "Student only",
+    "yes": "Yes",
+    "no": "No",
+    "requires": "Requires",
+    "teamSize": "Team size",
+    "entryBarriers": "Entry barriers",
+    "series": "Series",
+    "visitOfficial": "Visit Official Page",
+    "relatedCompetitions": "Related Competitions"
+  },
+  "seriesList": {
+    "title": "Competition Series",
+    "description": "Recurring competitions that happen every year. See their full history.",
+    "since": "Since {year}",
+    "editions": "{count} editions",
+    "edition": "{count} edition"
+  },
+  "seriesDetail": {
+    "allSeries": "All series",
+    "editions": "Editions",
+    "noEditions": "No editions found.",
+    "officialWebsite": "Official website"
+  },
+  "timeline": {
+    "title": "Timeline",
+    "description": "All competition deadlines and start dates, sorted chronologically."
+  },
+  "submit": {
+    "title": "Submit a Competition",
+    "description": "Know an engineering competition we're missing? Let us know and we'll add it.",
+    "nameLabel": "Competition Name *",
+    "namePlaceholder": "e.g. RoboCup 2026",
+    "urlLabel": "Official URL *",
+    "deadlineLabel": "Registration Deadline",
+    "categoryLabel": "Category",
+    "categoryPlaceholder": "Select a category",
+    "descriptionLabel": "Description",
+    "descriptionPlaceholder": "Brief description of the competition...",
+    "emailLabel": "Your Email",
+    "emailOptional": "(optional)",
+    "emailPlaceholder": "for follow-up questions",
+    "submitButton": "Submit Competition",
+    "notice": "Submissions are reviewed before being added. We typically respond within 48 hours."
+  },
+  "notFound": {
+    "title": "Page not found",
+    "description": "The page you're looking for doesn't exist or may have been moved.",
+    "backHome": "Back to Home"
+  },
+  "footer": {
+    "tagline": "Find your next engineering competition."
+  },
+  "region": {
+    "korea": "🇰🇷 Korea",
+    "global": "🌍 Global",
+    "online": "💻 Online"
+  },
+  "tier": {
+    "S": "S-World Class",
+    "A": "A-Major",
+    "B": "B-Regional",
+    "C": "C-Local"
+  },
+  "status": {
+    "open": "Open",
+    "closing_soon": "Closing Soon",
+    "upcoming": "Upcoming",
+    "closed": "Closed"
+  },
+  "category": {
+    "robotics": "🤖 Robotics",
+    "ad": "🚗 Autonomous Driving",
+    "ai-ml": "🧠 AI/ML",
+    "electrical": "⚡ Electrical",
+    "mechanical": "⚙️ Mechanical",
+    "aerospace": "🚀 Aerospace",
+    "general": "🔧 General Engineering"
+  }
+}

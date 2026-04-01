@@ -1,18 +1,20 @@
 "use client";
 
 import { useState } from "react";
-import Link from "next/link";
 import { Menu, X } from "lucide-react";
-
-const NAV_LINKS = [
-  { href: "/competitions", label: "Competitions" },
-  { href: "/series", label: "Series" },
-  { href: "/timeline", label: "Timeline" },
-  { href: "/submit", label: "Submit" },
-];
+import { useTranslations } from "next-intl";
+import { Link } from "@/i18n/navigation";
 
 export function MobileMenu() {
   const [open, setOpen] = useState(false);
+  const t = useTranslations("nav");
+
+  const NAV_LINKS = [
+    { href: "/competitions" as const, label: t("competitions") },
+    { href: "/series" as const, label: t("series") },
+    { href: "/timeline" as const, label: t("timeline") },
+    { href: "/submit" as const, label: t("submit") },
+  ];
 
   return (
     <div className="md:hidden">

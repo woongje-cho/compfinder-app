@@ -1,7 +1,8 @@
 import { notFound } from "next/navigation";
-import Link from "next/link";
 import type { Metadata } from "next";
 import { ArrowLeft, ExternalLink } from "lucide-react";
+import { getTranslations, setRequestLocale } from "next-intl/server";
+import { Link } from "@/i18n/navigation";
 import { getAllSeries, getSeriesBySlug, getSeriesEditions } from "@/lib/data";
 import { TierBadge } from "@/components/shared/TierBadge";
 import { StatusBadge } from "@/components/shared/StatusBadge";
@@ -29,9 +30,12 @@ export async function generateMetadata({
 export default async function SeriesDetailPage({
   params,
 }: {
-  params: Promise<{ slug: string }>;
+  params: Promise<{ locale: string; slug: string }>;
 }) {
-  const { slug } = await params;
+  const { locale, slug } = await params;
+  setRequestLocale(locale);
+  const t = await getTranslations("seriesDetail");
+
   const series = getSeriesBySlug(slug);
   if (!series) notFound();
 
@@ -44,10 +48,9 @@ export default async function SeriesDetailPage({
         className="mb-6 inline-flex items-center gap-1 text-sm text-zinc-400 transition-colors hover:text-zinc-50"
       >
         <ArrowLeft className="h-4 w-4" />
-        All series
+        {t("allSeries")}
       </Link>
 
-      {/* Header */}
       <div className="mb-8">
         <h1 className="mb-2 text-3xl font-bold text-zinc-50">{series.name}</h1>
         <p className="mb-4 text-zinc-400">{series.organizer}</p>
@@ -65,17 +68,15 @@ export default async function SeriesDetailPage({
             rel="noopener noreferrer"
             className="inline-flex items-center gap-1 text-zinc-400 transition-colors hover:text-zinc-50"
           >
-            Official website <ExternalLink className="h-3.5 w-3.5" />
+            {t("officialWebsite")} <ExternalLink className="h-3.5 w-3.5" />
           </a>
         </div>
       </div>
 
-      {/* Description */}
       <p className="mb-8 text-zinc-300 leading-relaxed">{series.description}</p>
 
-      {/* Edition Timeline */}
       <section>
-        <h2 className="mb-4 text-lg font-semibold text-zinc-50">Editions</h2>
+        <h2 className="mb-4 text-lg font-semibold text-zinc-50">{t("editions")}</h2>
         <div className="space-y-3">
           {editions.map((ed) => (
             <Link
@@ -110,7 +111,7 @@ export default async function SeriesDetailPage({
         </div>
 
         {editions.length === 0 && (
-          <p className="text-sm text-zinc-500">No editions found.</p>
+          <p className="text-sm text-zinc-500">{t("noEditions")}</p>
         )}
       </section>
     </div>

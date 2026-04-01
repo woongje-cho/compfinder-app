@@ -1,6 +1,9 @@
-import Link from "next/link";
+import { useTranslations } from "next-intl";
+import { Link } from "@/i18n/navigation";
 
 export function Footer() {
+  const t = useTranslations();
+
   return (
     <footer className="border-t border-zinc-800 bg-zinc-950">
       <div className="mx-auto max-w-7xl px-4 py-8">
@@ -13,14 +16,14 @@ export function Footer() {
               <span className="text-sm font-semibold text-zinc-400">CompFinder</span>
             </Link>
             <p className="text-xs text-zinc-600">
-              Find your next engineering competition.
+              {t("footer.tagline")}
             </p>
           </div>
           <div className="flex items-center gap-6 text-sm text-zinc-500">
-            <Link href="/competitions" className="transition-colors hover:text-zinc-300">Competitions</Link>
-            <Link href="/series" className="transition-colors hover:text-zinc-300">Series</Link>
-            <Link href="/timeline" className="transition-colors hover:text-zinc-300">Timeline</Link>
-            <Link href="/submit" className="transition-colors hover:text-zinc-300">Submit</Link>
+            <Link href="/competitions" className="transition-colors hover:text-zinc-300">{t("nav.competitions")}</Link>
+            <Link href="/series" className="transition-colors hover:text-zinc-300">{t("nav.series")}</Link>
+            <Link href="/timeline" className="transition-colors hover:text-zinc-300">{t("nav.timeline")}</Link>
+            <Link href="/submit" className="transition-colors hover:text-zinc-300">{t("nav.submit")}</Link>
           </div>
         </div>
       </div>

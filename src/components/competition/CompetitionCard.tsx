@@ -1,4 +1,4 @@
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 import type { Competition } from "@/lib/types";
 import { TierBadge } from "@/components/shared/TierBadge";
 import { DdayBadge } from "@/components/shared/DdayBadge";

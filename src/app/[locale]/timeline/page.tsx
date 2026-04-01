@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
-import Link from "next/link";
+import { getTranslations, setRequestLocale } from "next-intl/server";
+import { Link } from "@/i18n/navigation";
 import { getAllCompetitions } from "@/lib/data";
 import { TierBadge } from "@/components/shared/TierBadge";
 import { DdayBadge } from "@/components/shared/DdayBadge";
@@ -11,9 +12,16 @@ export const metadata: Metadata = {
   description: "See all upcoming competition deadlines on a timeline.",
 };
 
-export default function TimelinePage() {
-  const all = getAllCompetitions();
+export default async function TimelinePage({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  setRequestLocale(locale);
+  const t = await getTranslations("timeline");
 
+  const all = getAllCompetitions();
   const withDates = all
     .filter((c) => c.registrationDeadline || c.startDate)
     .map((c) => ({
@@ -22,7 +30,6 @@ export default function TimelinePage() {
     }))
     .sort((a, b) => a.sortDate.localeCompare(b.sortDate));
 
-  // Group by month
   const grouped = new Map<string, typeof withDates>();
   for (const c of withDates) {
     const date = new Date(c.sortDate);
@@ -31,26 +38,24 @@ export default function TimelinePage() {
     grouped.get(key)!.push(c);
   }
 
+  const dateLocale = locale === "ko" ? "ko-KR" : "en-US";
+
   return (
     <div className="mx-auto max-w-4xl px-4 py-8">
-      <h1 className="mb-2 text-3xl font-bold text-zinc-50">Timeline</h1>
-      <p className="mb-8 text-zinc-400">
-        All competition deadlines and start dates, sorted chronologically.
-      </p>
+      <h1 className="mb-2 text-3xl font-bold text-zinc-50">{t("title")}</h1>
+      <p className="mb-8 text-zinc-400">{t("description")}</p>
 
       <div className="space-y-8">
         {Array.from(grouped.entries()).map(([month, comps]) => {
           const date = new Date(month + "-01");
-          const label = date.toLocaleDateString("en-US", {
+          const label = date.toLocaleDateString(dateLocale, {
             month: "long",
             year: "numeric",
           });
 
           return (
             <section key={month}>
-              <h2 className="mb-4 text-lg font-semibold text-zinc-300">
-                {label}
-              </h2>
+              <h2 className="mb-4 text-lg font-semibold text-zinc-300">{label}</h2>
               <div className="space-y-2">
                 {comps.map((c) => (
                   <Link
