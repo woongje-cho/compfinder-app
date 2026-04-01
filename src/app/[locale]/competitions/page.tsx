@@ -1,5 +1,6 @@
 import { Suspense } from "react";
 import { getTranslations, setRequestLocale } from "next-intl/server";
+import { Link } from "@/i18n/navigation";
 import { getAllCompetitions } from "@/lib/data";
 import { CompetitionCard } from "@/components/competition/CompetitionCard";
 import { MobileFilterToggle } from "@/components/competition/MobileFilterToggle";
@@ -211,7 +212,7 @@ function RegionTab({
 }) {
   const href = buildUrl(params, { region: region || undefined });
   return (
-    <a
+    <Link
       href={href}
       className={`rounded-lg border px-3 py-1.5 text-sm font-medium transition-colors ${
         active
@@ -220,7 +221,7 @@ function RegionTab({
       }`}
     >
       {label} <span className="text-zinc-500">({count})</span>
-    </a>
+    </Link>
   );
 }
 
@@ -252,7 +253,7 @@ function FilterItem({
   const newValue = toggleParam(params[paramKey], paramValue);
   const href = buildUrl(params, { [paramKey]: newValue });
   return (
-    <a
+    <Link
       href={href}
       className={`flex items-center gap-2 rounded-md px-2 py-1 text-sm transition-colors ${
         active ? "bg-zinc-800 text-zinc-50" : "text-zinc-400 hover:bg-zinc-800/50 hover:text-zinc-200"
@@ -260,7 +261,7 @@ function FilterItem({
     >
       <span className={`h-3.5 w-3.5 rounded-sm border ${active ? "border-zinc-50 bg-zinc-50" : "border-zinc-600"}`} />
       {label}
-    </a>
+    </Link>
   );
 }
 
@@ -282,7 +283,7 @@ function SortSelect({
       <span>{t("sort")}:</span>
       <div className="flex gap-1">
         {options.map((opt) => (
-          <a
+          <Link
             key={opt.value}
             href={buildUrl(params, { sort: opt.value })}
             className={`rounded-md px-2 py-1 text-xs transition-colors ${
@@ -290,7 +291,7 @@ function SortSelect({
             }`}
           >
             {opt.label}
-          </a>
+          </Link>
         ))}
       </div>
     </div>
